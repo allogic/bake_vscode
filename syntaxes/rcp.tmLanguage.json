@@ -1,0 +1,83 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "bake",
+	"patterns": [
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#targets"
+		},
+		{
+			"include": "#arguments"
+		},
+		{
+			"include": "#calls"
+		},
+		{
+			"include": "#variables"
+		},
+		{
+			"include": "#strings"
+		}
+	],
+	"repository": {
+		"comments": {
+			"patterns": [
+				{
+					"name": "comment.line.double-slash.rcp",
+					"match": "//.*"
+				},
+				{
+					"name": "comment.block.rcp",
+					"begin": "/\\*",
+					"end": "\\*/",
+					"patterns": [
+						{
+							"name": "comment.block.rcp",
+							"begin": "/\\*",
+							"end": "\\*/"
+						}
+					]
+				}
+			]
+		},
+		"keywords": {
+			"patterns": [{
+				"name": "keyword.control.rcp",
+				"match": "\\b(if|else)\\b"
+			}]
+		},
+		"targets": {
+			"name": "entity.name.function.rcp",
+			"match": "\\b[_a-zA-Z][_a-zA-Z0-9]*\\s*(?=\\()"
+		},
+		"arguments": {
+			"name": "variable.parameter.rcp",
+			"match": "(?<=\\()[_a-zA-Z][_a-zA-Z0-9]*(?=[,\\s\\)])"
+		},
+		"calls": {
+			"name": "entity.name.function.call.rcp",
+			"match": "\\b[_a-zA-Z][_a-zA-Z0-9]*\\s*(?=\\()"
+		},
+		"variables": {
+			"name": "variable.other.rcp",
+			"match": "\\b[_a-zA-Z][_a-zA-Z0-9]*\\b"
+		},
+		"strings": {
+			"name": "string.quoted.double.rcp",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.rcp",
+					"match": "\\\\."
+				}
+			]
+		}
+	},
+	"scopeName": "source.rcp"
+}

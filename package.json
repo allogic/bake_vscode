@@ -1,0 +1,32 @@
+{
+	"name": "bake",
+	"displayName": "Bake",
+	"description": "Recipe script syntax highlighting",
+	"version": "0.0.1",
+	"publisher": "allogic",
+	"repository": "https://github.com/allogic/bake_vscode",
+	"engines": {
+		"vscode": "^1.96.0"
+  	},
+	"categories": [
+		"Programming Languages"
+	],
+	"icon": "icon.png",
+	"contributes": {
+		"languages": [
+			{
+				"id": "rcp",
+				"aliases": ["bake", "rcp"],
+				"extensions": [".rcp"],
+				"configuration": "./language-configuration.json"
+			}
+		],
+		"grammars": [
+			{
+				"language": "rcp",
+				"scopeName": "source.rcp",
+				"path": "./syntaxes/rcp.tmLanguage.json"
+			}
+		]
+	}
+}
